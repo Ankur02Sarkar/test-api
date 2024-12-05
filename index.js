@@ -12,6 +12,11 @@ app.use(cors());
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 
+// Root endpoint to check API status
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
 app.post("/generate-pdf", async (req, res) => {
   try {
     const { htmlContent } = req.body;
