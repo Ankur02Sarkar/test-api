@@ -22,13 +22,13 @@ app.post("/generate-pdf", async (req, res) => {
 
     // Define options for PDF generation
     const options = {
-      format: "Letter",
-      orientation: "portrait",
+      format: "A4", // Use A4 for better dimensions
+      orientation: "portrait", // Change to "landscape" if wider content is needed
       border: {
-        top: "20px",
-        right: "20px",
-        bottom: "20px",
-        left: "20px",
+        top: "20px", // Top margin
+        right: "20px", // Right margin
+        bottom: "20px", // Bottom margin
+        left: "20px", // Left margin
       },
       type: "pdf",
     };
@@ -45,7 +45,10 @@ app.post("/generate-pdf", async (req, res) => {
 
     // Set headers for the PDF download
     res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Disposition", "attachment; filename=enhanced_resume.pdf");
+    res.setHeader(
+      "Content-Disposition",
+      "attachment; filename=enhanced_resume.pdf"
+    );
 
     return res.send(pdfBuffer);
   } catch (error) {
