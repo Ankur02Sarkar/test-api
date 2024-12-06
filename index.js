@@ -26,13 +26,13 @@ app.post("/generate-pdf", async (req, res) => {
     }
 
     const options = {
-      format: "A4",
-      orientation: "landscape", // Wider layout
+      height: "1500px", // Set height dynamically based on your content
+      width: "1000px", // Match your content's width
       border: {
-        top: "20px",
-        right: "20px",
-        bottom: "20px",
-        left: "20px",
+        top: "10px",
+        right: "10px",
+        bottom: "10px",
+        left: "10px",
       },
     };
 
